@@ -1,0 +1,48 @@
+ExerciseII
+
+04/02/2016
+
+1. 
+a)Int
+b)Boolean
+c)Long
+d)Double
+
+2.
+
+a)Char
+b)String
+value is a for both
+
+3.
+a)string value Hello World!
+b)unit value Hello world!
+
+
+4.error unclosed character literal
+
+5.
+a)string: predator
+b)Any = 2001
+c) Any Hello
+
+
+6
+a)Int 6 from adding 3 numbers
+b)Int 6 just the number
+
+7
+  
+  def square(calc:Int): Int = calc*calc
+   square(2)
+   println(square(3))
+
+  def cube(calc:Int): Int = calc*calc*calc
+   cube(4)
+   println(cube(5))
+ 
+ def cube2(calc:Int): Int = calc*square(calc)
+   cube2(6)
+   println(cube2(7))
+
+8)

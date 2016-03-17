@@ -1,0 +1,1 @@
+1. Write down three di?erences between abstract classes and interfaces in Java 8. Provide examples to illustrate your answer. 
