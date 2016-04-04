@@ -1,10 +1,64 @@
-package week7
+package q5c
 
-trait Shape {
+sealed trait Shape {
   def sides: Int
   def perimeter: Double
   def area: Double
+  
 }
+
+package q5b
+
+
+
+class Rectangular(_width:Double, _height:Double) extends Shape{
+  def width = _width
+  def height = _height
+  def isSquare = if (_width == _height) true  else false
+  
+  override def perimeter(): Double = {
+    return 2 * (width + height)
+  }
+  override def sides(): Int = {
+    return 4
+  }
+  override def area(): Double = {
+    return width * height
+  }
+}
+
+case class Square(w: Double, h: Double) extends Rectangular(w,h) with Shape{
+  override def width = w
+  override def height = h
+  val sq = new Rectangular(width,height) with Shape()
+  override def sides = sq.sides() 
+  println(sides)
+  override def perimeter = sq.perimeter()
+  println(perimeter)
+  override def area = sq.area()
+  println(area)
+}
+
+case class Rectangle(w: Double, h: Double) extends Rectangular(w,h)with Shape{
+  override def width = w
+  override def height = h
+  val r = new Rectangular(width,height) with Shape()
+  override def sides() = r.sides()
+  println(sides)
+  override def perimeter() = r.perimeter()
+  println(perimeter)
+  override def area() = r.area()
+  println(area)
+}
+/*
+class Rect (width: Double, height: Double) {
+  def f(r : Rectangular) : Shape =
+    r match {
+    case Square(width, height) =>Square(width,height); 
+    case Rectangle(width,height) => Rectangle(width,height)
+  
+  }
+}*/
 
 case class Circle(r: Double) extends Shape {
   private val pi = math.Pi
@@ -19,50 +73,15 @@ case class Circle(r: Double) extends Shape {
   }
 }
 
-case class Square(width: Double, height: Double) extends Shape {
-  override def perimeter(): Double = {
-    return 4 * width
-  }
-  override def sides(): Int = {
-    return 4
-  }
-  override def area(): Double = {
-    return width * width
-  }
+object ShapeTest extends App {
+
+  Square(10, 10)
+  Rectangle(10, 9)
+
+  val c = new Circle(10)
+  println(c.sides)
+  println(c.perimeter)
+  println(c.area)
+
 }
-
-case class Rectangle(width: Double, height: Double) extends Shape {
-  override def perimeter(): Double = {
-    return 2 * height + 2 * width
-  }
-  override def sides(): Int = {
-    return 4
-  }
-  override def area(): Double = {
-    return height * width
-  }
-}
-
-object Test {
-  def main(args: Array[String]) {
-    val c = new Circle(10)
-    println(c.perimeter)
-    println(c.sides)
-    println(c.area)
-
-    val s = new Square(10, 10)
-
-    println(s.perimeter())
-    println(s.sides())
-    println(s.area())
-
-    val r = new Rectangle(10, 9)
-
-    println(r.perimeter())
-    println(r.sides())
-    println(r.area())
-
-  }
-}
-  
 
