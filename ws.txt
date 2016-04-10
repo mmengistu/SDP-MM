@@ -1,0 +1,134 @@
+Q1. Write down three diﬀerences between abstract classes and interfaces in Java 8.
+    Provide examples to illustrate your answer. 
+Answer:
+
+Ans1. abstract keyword is used to create an abstract class and it can be used with methods also whereas interface keyword is used to create interface and it can’t be used with methods.
+eg. 
+public interface Window{
+	//...
+}	
+
+abstract class WindowDecorator{
+	//...
+}
+
+Ans2.
+Java interface should be implemented using keyword “implements”; A Java abstract class should be extended using keyword “extends”.
+e.g.
+abstract class WindowDecorator implements Window{
+	//...
+}
+class verticalScrollBarDecorator extends WindowDecorator{
+	//...
+}
+	
+Ans3.
+Members of a Java interface are public by default. A Java abstract class can have the usual flavors of class members like private, protected, etc..	
+public interface Window{
+	public void draw();
+	public String getDescription();
+}	
+abstract class WindowDecorator implements Window{
+	protected window2bDecorated;
+	//...
+}
+
+Q2.
+2. Are the following true or false? 
+	(a) Every interface must have at least one method. 
+	(b) An interface can declare instance ﬁelds that an implementing class must also declare. 
+	(c) Although you can’t instantiate an interface, an interface deﬁnition can declare constructor methods that require an implementing class to provide constructors with given signatures. 
+	Provide examples to illustrate your answers. 
+	
+Answer;
+Ans a. FALSE - can be created without any method.	
+
+Ans b. FALSE
+
+Ans c. FALSE
+
+Q3.
+ Provide an example of an interface with methods that do not imply responsibility on the part of the implementing class to take action on behalf of the caller or to return a value
+ 
+ Answer:
+ public interface Window{
+	public void draw();
+	public String getDescription();
+}
+
+Q4.
+ What is the value of a stub class like WindowAdapter which is composed of methods that do nothing? 
+ 
+ Ans
+ 
+ The value is void. //check this
+ 
+ Q5.
+  How can you prevent other developers from constructing new instances of your class? Provide appropriate examples to illustrate your answer.
+  
+  Answer:
+  
+  Turn constructors private.
+  
+  http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+  
+  
+  
+  Q6.
+   Why might you decide to lazy-initialise a singleton instance rather than initialise it in its ﬁeld declaration? Provide examples of both approaches to illustrate your answer.
+   
+   http://howtodoinjava.com/design-patterns/singleton-design-pattern-in-java/
+  
+  In computer programming, lazy initialization is the tactic of delaying the creation of an object, the calculation of a value, or some other expensive process until the first time it is needed. In singleton pattern, it restricts the creation of instance until requested first time. Lets see in code:
+  
+  public final class LazySingleton {
+    private static volatile LazySingleton instance = null;
+ 
+    // private constructor
+    private LazySingleton() {
+    }
+ 
+    public static LazySingleton getInstance() {
+        if (instance == null) {
+            synchronized (LazySingleton.class) {
+                instance = new LazySingleton();
+            }
+        }
+        return instance;
+    }
+}
+
+Q7,
+ Using the java.util.Observable and java.util.Observer classes/interfaces show how one object can be informed of updates to another object. 
+ 
+ 
+ 
+ 
+ 8. “The Observer pattern supports the MVC pattern”. State if this statement is true or false and support your answer by use of an appropriate example. 
+ 
+ 9. Provide examples of two commonly used Java methods that return a new object. 
+ 
+ 
+ 10. What are the signs that a Factory Method is at work? 
+ 
+ 
+ 11. If you want to direct output to System.out instead of to a ﬁle, you can create a Writer object that directs its output to System.out:
+Writer out = new PrintWriter(System.out);
+Write a code example to deﬁne a Writer object that wraps text at 15 characters, centres the text, sets the text to random casing, and directs the output to System.out. Which design pattern are you using?
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
